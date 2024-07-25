@@ -6,35 +6,31 @@ import jakarta.persistence.*;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    public int id;
     private String name;
     private String image;
     private String detail;
     private String screenSize;
     private String cpu;
-    private String ram;
     private String operatingSystem;
     private String mainCamera;
     private String secondaryCamera;
     private String battery;
     private String display;
-    @JoinColumn
-    @ManyToOne
-    private DetailProduct idDetailProduct;
+
     public Product() {}
 
-    public Product(String battery, String cpu, String detail, String display, int id, DetailProduct idDetailProduct, String image, String mainCamera, String name, String operatingSystem, String ram, String screenSize, String secondaryCamera) {
+
+    public Product(String battery, String cpu, String detail, String display, int id, String image, String mainCamera, String name, String operatingSystem, String screenSize, String secondaryCamera) {
         this.battery = battery;
         this.cpu = cpu;
         this.detail = detail;
         this.display = display;
         this.id = id;
-        this.idDetailProduct = idDetailProduct;
         this.image = image;
         this.mainCamera = mainCamera;
         this.name = name;
         this.operatingSystem = operatingSystem;
-        this.ram = ram;
         this.screenSize = screenSize;
         this.secondaryCamera = secondaryCamera;
     }
@@ -79,14 +75,6 @@ public class Product {
         this.id = id;
     }
 
-    public DetailProduct getIdDetailProduct() {
-        return idDetailProduct;
-    }
-
-    public void setIdDetailProduct(DetailProduct idDetailProduct) {
-        this.idDetailProduct = idDetailProduct;
-    }
-
     public String getImage() {
         return image;
     }
@@ -117,14 +105,6 @@ public class Product {
 
     public void setOperatingSystem(String operatingSystem) {
         this.operatingSystem = operatingSystem;
-    }
-
-    public String getRam() {
-        return ram;
-    }
-
-    public void setRam(String ram) {
-        this.ram = ram;
     }
 
     public String getScreenSize() {

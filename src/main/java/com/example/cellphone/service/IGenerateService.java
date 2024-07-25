@@ -8,4 +8,5 @@ public interface IGenerateService<T>{
     void delete(Integer id);
     Optional<T> findById(Integer id);
 
+
 }

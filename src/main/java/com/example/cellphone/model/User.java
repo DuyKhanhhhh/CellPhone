@@ -16,18 +16,18 @@ public class User {
     private String address;
     private String image;
     private boolean status;
-//    @ManyToOne
-//    @JoinColumn(name = "idRole")
-//    private Role idRole;
+    @ManyToOne
+    @JoinColumn(name = "idRole")
+    private Role idRole;
 
     public User() {
     }
 
-    public User(String address, String email, long id, String image, String name, String password, String phoneNumber, boolean status) {
+    public User(String address, String email, long id,Role role, String image, String name, String password, String phoneNumber, boolean status) {
         this.address = address;
         this.email = email;
         this.id = id;
-//        this.idRole = idRole;
+        this.idRole = idRole;
         this.image = image;
         this.name = name;
         this.password = password;
@@ -59,13 +59,13 @@ public class User {
         this.id = id;
     }
 
-//    public Role getIdRole() {
-//        return idRole;
-//    }
-//
-//    public void setIdRole(Role idRole) {
-//        this.idRole = idRole;
-//    }
+    public Role getIdRole() {
+        return idRole;
+    }
+
+    public void setIdRole(Role idRole) {
+        this.idRole = idRole;
+    }
 
     public String getImage() {
         return image;

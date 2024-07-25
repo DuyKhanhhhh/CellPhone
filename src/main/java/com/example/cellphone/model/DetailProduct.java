@@ -7,20 +7,21 @@ public class DetailProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int memory;
+    private String memory;
     private String color;
+    private int price;
     @JoinColumn
     @ManyToOne
-    private PriceProduct idPriceProduct;
-
+    private Product idProduct;
     public DetailProduct() {
     }
 
-    public DetailProduct(String color, int id, PriceProduct idPriceProduct, int memory) {
-        this.color = color;
+    public DetailProduct(int id, String memory, String color, int price, Product idProduct) {
         this.id = id;
-        this.idPriceProduct = idPriceProduct;
         this.memory = memory;
+        this.color = color;
+        this.price = price;
+        this.idProduct = idProduct;
     }
 
     public String getColor() {
@@ -39,20 +40,28 @@ public class DetailProduct {
         this.id = id;
     }
 
-    public PriceProduct getIdPriceProduct() {
-        return idPriceProduct;
-    }
-
-    public void setIdPriceProduct(PriceProduct idPriceProduct) {
-        this.idPriceProduct = idPriceProduct;
-    }
-
-    public int getMemory() {
+    public String getMemory() {
         return memory;
     }
 
-    public void setMemory(int memory) {
+    public void setMemory(String memory) {
         this.memory = memory;
+    }
+
+    public Product getIdProduct() {
+        return idProduct;
+    }
+
+    public void setIdProduct(Product idProduct) {
+        this.idProduct = idProduct;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }
 
